@@ -1,84 +1,105 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navigation = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Why Choose Us", href: "#why-choose" },
     { name: "Classes", href: "#classes" },
     { name: "Reviews", href: "#reviews" },
     { name: "Contact", href: "#contact" }
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    element?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-border">
-      <nav className="container mx-auto px-4">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'header-glass shadow-sm' : 'bg-transparent'
+    }`}>
+      <nav className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-900 rounded-lg flex items-center justify-center">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="heading-arabic text-xl font-bold">Tajweed Academy</h1>
-              <p className="text-xs text-muted-foreground">Quran • Tajweed • Online</p>
+              <h1 className="heading-section text-lg font-bold text-emerald-900">Online Tajweed Academy</h1>
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
-              <a
+              <button
                 key={item.name}
-                href={item.href}
-                className="text-elegant text-sm font-medium text-foreground hover:text-primary transition-colors"
+                onClick={() => scrollToSection(item.href)}
+                className="body-text text-sm font-medium hover:text-emerald-600 transition-colors"
               >
                 {item.name}
-              </a>
+              </button>
             ))}
           </div>
 
-          {/* CTA Button */}
           <div className="hidden md:flex">
-            <Button className="btn-hero">
-              Free Trial
-            </Button>
+            <a 
+              href="https://wa.me/923349523393?text=I%20want%20to%20book%20a%203%20day%20trial%20session"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="btn-primary px-6 py-2 rounded-lg font-medium">
+                Free Trial
+              </Button>
+            </a>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border bg-white/95 backdrop-blur-md">
             <div className="flex flex-col gap-4">
               {navigation.map((item) => (
-                <a
+                <button
                   key={item.name}
-                  href={item.href}
-                  className="text-elegant font-medium text-foreground hover:text-primary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => scrollToSection(item.href)}
+                  className="body-text font-medium text-left hover:text-emerald-600 transition-colors"
                 >
                   {item.name}
-                </a>
+                </button>
               ))}
-              <Button className="btn-hero w-full mt-4">
-                Free Trial
-              </Button>
+              <a 
+                href="https://wa.me/923349523393?text=I%20want%20to%20book%20a%203%20day%20trial%20session"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4"
+              >
+                <Button className="btn-primary w-full py-3 rounded-lg font-medium">
+                  Book Free Trial
+                </Button>
+              </a>
             </div>
           </div>
         )}
