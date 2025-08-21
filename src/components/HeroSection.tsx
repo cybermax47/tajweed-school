@@ -25,22 +25,30 @@ const HeroSection = () => {
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 max-w-6xl mx-auto fade-in-up">
         <h1 className="heading-arabic text-5xl md:text-7xl lg:text-8xl mb-6 hero-text-glow text-white">
-          Learn the Quran with Tajweed
+          Online Tajweed Academy
         </h1>
         <h2 className="text-elegant text-xl md:text-2xl lg:text-3xl text-white/90 mb-4 font-light">
-          Anywhere in the World
+          Learn the Quran with Perfection
         </h2>
         <p className="text-elegant text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-          One-to-one live Zoom sessions • For Boys & Girls • From Basics to Hifz Revision
+          One-to-one live Zoom classes for boys and girls worldwide
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="btn-hero text-lg px-8 py-6 glow-pulse">
-            Book Free 3-Day Trial
-          </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10">
-            View Classes
-          </Button>
+          <a 
+            href="https://wa.me/923349523393?text=I%20want%20to%20book%20a%203-day%20trial%20session"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="btn-hero text-lg px-8 py-6 glow-pulse">
+              Book Free 3-Day Trial
+            </Button>
+          </a>
+          <a href="#classes">
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10">
+              View Classes
+            </Button>
+          </a>
         </div>
 
         {/* Trust Badge */}
