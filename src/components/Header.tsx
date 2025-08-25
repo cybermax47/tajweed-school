@@ -23,8 +23,16 @@ const Header = () => {
   }, []);
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (href === "#home") {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.querySelector(href) as HTMLElement;
+      if (element) {
+        const headerHeight = 80;
+        const elementPosition = element.offsetTop - headerHeight;
+        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+      }
+    }
     setIsMenuOpen(false);
   };
 
@@ -48,9 +56,10 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="body-text text-sm font-medium hover:text-emerald-600 transition-colors"
+                className="body-text text-sm font-medium hover:text-emerald-600 transition-all duration-300 relative group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-gold-400 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
           </div>
@@ -61,7 +70,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="btn-primary px-6 py-2 rounded-lg font-medium">
+              <Button className="btn-hero px-6 py-2 rounded-lg font-medium">
                 Free Trial
               </Button>
             </a>
@@ -96,7 +105,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="mt-4"
               >
-                <Button className="btn-primary w-full py-3 rounded-lg font-medium">
+                <Button className="btn-hero w-full py-3 rounded-lg font-medium">
                   Book Free Trial
                 </Button>
               </a>

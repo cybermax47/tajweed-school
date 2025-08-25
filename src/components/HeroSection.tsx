@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-islamic-banner.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
@@ -44,11 +44,20 @@ const HeroSection = () => {
               Book Free 3-Day Trial
             </Button>
           </a>
-          <a href="#classes">
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10">
+          <button 
+            onClick={() => {
+              const element = document.querySelector('#classes') as HTMLElement;
+              if (element) {
+                const headerHeight = 80;
+                const elementPosition = element.offsetTop - headerHeight;
+                window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+              }
+            }}
+          >
+            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 hover:border-gold-400 transition-all duration-300">
               View Classes
             </Button>
-          </a>
+          </button>
         </div>
 
         {/* Trust Badge */}
