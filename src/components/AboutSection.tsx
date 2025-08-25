@@ -38,8 +38,13 @@ const AboutSection = () => {
   return (
     <section className="py-20 pattern-subtle">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="heading-arabic text-4xl md:text-5xl mb-6">About Our Academy</h2>
+        <div className="text-center mb-16 fade-in-up">
+          <div className="inline-block bg-gradient-to-r from-primary/20 to-accent/20 rounded-full px-6 py-2 mb-6">
+            <span className="text-primary font-semibold text-sm">🕌 About Us</span>
+          </div>
+          <h2 className="heading-arabic text-4xl md:text-5xl lg:text-6xl mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            About Our Academy
+          </h2>
           <p className="text-elegant text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             We are a dedicated team of qualified Quran tutors offering personalized online classes 
             to help you connect with the Quran through proper Tajweed, understanding, and daily practices.
@@ -82,20 +87,23 @@ const AboutSection = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in-stagger">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="card-islamic p-8 rounded-2xl text-center group"
+              className="card-islamic p-8 rounded-2xl text-center group relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="w-8 h-8 text-primary" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl mb-6 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-primary/30 group-hover:to-accent/20 transition-all duration-300">
+                  <service.icon className="w-10 h-10 text-primary group-hover:text-accent-foreground transition-colors" />
+                </div>
+                <h4 className="heading-arabic text-xl mb-4 group-hover:text-primary transition-colors">{service.title}</h4>
+                <p className="text-elegant text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors">
+                  {service.description}
+                </p>
               </div>
-              <h4 className="heading-arabic text-xl mb-4">{service.title}</h4>
-              <p className="text-elegant text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
             </div>
           ))}
         </div>

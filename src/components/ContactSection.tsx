@@ -57,12 +57,15 @@ const ContactSection = () => {
           
           {/* Left Column - Copy */}
           <div className="space-y-8">
-            <div className="space-y-6">
-              <h2 className="heading-section text-3xl sm:text-4xl lg:text-5xl text-emerald-900">
+            <div className="space-y-6 fade-in-up">
+              <div className="inline-block bg-gradient-to-r from-primary/20 to-accent/20 rounded-full px-6 py-2 mb-4">
+                <span className="text-primary font-semibold text-sm">📞 Contact Us</span>
+              </div>
+              <h2 className="heading-section text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Get in Touch
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-emerald-600 to-gold-400 rounded-full"></div>
-              <p className="body-text text-lg text-ink-600 leading-relaxed">
+              <div className="w-24 h-1.5 bg-gradient-to-r from-primary via-accent to-primary rounded-full"></div>
+              <p className="body-text text-lg text-muted-foreground leading-relaxed">
                 Prefer WhatsApp? So do we. Reach us instantly for quick responses 
                 and easy enrollment. We're here to guide you on your Quranic journey.
               </p>

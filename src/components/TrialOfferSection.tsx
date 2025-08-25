@@ -31,38 +31,47 @@ const TrialOfferSection = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Main Offer Card */}
-          <Card className="relative overflow-hidden card-islamic p-8 md:p-12 text-center mb-12">
-            {/* Decorative Elements */}
-            <div className="absolute top-4 right-4 w-16 h-16 bg-accent/20 rounded-full float-animation"></div>
-            <div className="absolute bottom-4 left-4 w-12 h-12 bg-primary/20 rounded-full float-animation" style={{ animationDelay: '1s' }}></div>
+          <Card className="relative overflow-hidden card-islamic p-8 md:p-12 text-center mb-12 glow-pulse">
+            {/* Enhanced Decorative Elements */}
+            <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent/30 to-primary/20 rounded-full blur-xl float-animation"></div>
+            <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-primary/30 to-accent/20 rounded-full blur-lg float-animation" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-primary/5 to-accent/5"></div>
             
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-6 py-3 mb-6">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-accent/20 to-primary/20 border border-accent/30 rounded-full px-6 py-3 mb-6 shadow-lg">
                 <Gift className="w-5 h-5 text-accent-foreground" />
-                <span className="text-accent-foreground font-semibold">Limited Time Offer</span>
+                <span className="text-accent-foreground font-bold">✨ Limited Time Offer</span>
               </div>
               
-              <h2 className="heading-arabic text-4xl md:text-5xl mb-6">
+              <h2 className="heading-arabic text-4xl md:text-5xl lg:text-6xl mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Start Your Quran Journey Today
               </h2>
               
               <p className="text-elegant text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                 Experience the beauty of learning Quran with proper Tajweed through our 
-                <span className="text-primary font-semibold"> completely free 3-day trial</span> program.
+                <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded"> completely free 3-day trial</span> program.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button size="lg" className="btn-hero text-lg px-10 py-6 glow-pulse">
-                  Book Your Free Trial Now
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-10 py-6">
+                <a 
+                  href="https://wa.me/923349523393?text=I%20want%20to%20book%20a%203-day%20trial%20session"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button size="lg" className="btn-hero text-lg px-10 py-6 glow-pulse shadow-xl hover:shadow-2xl transition-shadow">
+                    📱 Book Your Free Trial Now
+                  </Button>
+                </a>
+                <Button variant="outline" size="lg" className="text-lg px-10 py-6 border-primary/50 text-primary hover:bg-primary/10 hover:border-primary transition-all duration-300">
                   Learn More About Our Classes
                 </Button>
               </div>
               
-              <p className="text-sm text-muted-foreground">
-                ✨ Join over 2,000+ students who started with our free trial
-              </p>
+              <div className="inline-block bg-primary/10 border border-primary/20 rounded-full px-6 py-3">
+                <p className="text-sm text-primary font-semibold">
+                  ✨ Join over 2,000+ students who started with our free trial
+                </p>
+              </div>
             </div>
           </Card>
 
