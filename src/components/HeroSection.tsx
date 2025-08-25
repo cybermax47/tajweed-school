@@ -44,7 +44,10 @@ const HeroSection = () => {
               Book Free 3-Day Trial
             </Button>
           </a>
-          <button 
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 hover:border-gold-400 transition-all duration-300"
             onClick={() => {
               const element = document.querySelector('#classes') as HTMLElement;
               if (element) {
@@ -54,10 +57,8 @@ const HeroSection = () => {
               }
             }}
           >
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-white/30 text-white hover:bg-white/10 hover:border-gold-400 transition-all duration-300">
-              View Classes
-            </Button>
-          </button>
+            View Classes
+          </Button>
         </div>
 
         {/* Trust Badge */}
