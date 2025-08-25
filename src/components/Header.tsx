@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -38,16 +39,18 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'header-glass shadow-sm' : 'bg-transparent'
+      isScrolled ? 'header-glass shadow-lg' : 'bg-transparent'
     }`}>
       <nav className="container mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-900 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-br from-emerald-600 to-emerald-900 rounded-lg flex items-center justify-center shadow-lg">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="heading-section text-lg font-bold text-emerald-900">Online Tajweed Academy</h1>
+              <h1 className="heading-section text-lg font-bold bg-gradient-to-r from-emerald-900 to-emerald-600 bg-clip-text text-transparent">
+                Tajweed School
+              </h1>
             </div>
           </div>
 
@@ -56,7 +59,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="body-text text-sm font-medium hover:text-emerald-600 transition-all duration-300 relative group"
+                className="body-text text-sm font-medium text-emerald-900 hover:text-emerald-600 transition-all duration-300 relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-gold-400 transition-all duration-300 group-hover:w-full"></span>
@@ -70,7 +73,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="btn-hero px-6 py-2 rounded-lg font-medium">
+              <Button className="btn-hero px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300">
                 Free Trial
               </Button>
             </a>
@@ -81,6 +84,7 @@ const Header = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-emerald-900"
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </Button>
@@ -88,13 +92,13 @@ const Header = () => {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border bg-white/95 backdrop-blur-md">
+          <div className="md:hidden py-4 border-t border-border bg-white/95 backdrop-blur-md rounded-b-lg shadow-lg">
             <div className="flex flex-col gap-4">
               {navigation.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="body-text font-medium text-left hover:text-emerald-600 transition-colors"
+                  className="body-text font-medium text-left text-emerald-900 hover:text-emerald-600 transition-colors px-2 py-1"
                 >
                   {item.name}
                 </button>
@@ -105,7 +109,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="mt-4"
               >
-                <Button className="btn-hero w-full py-3 rounded-lg font-medium">
+                <Button className="btn-hero w-full py-3 rounded-lg font-medium shadow-lg">
                   Book Free Trial
                 </Button>
               </a>

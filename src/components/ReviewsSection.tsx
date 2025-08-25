@@ -1,3 +1,4 @@
+
 import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 import { useState, useEffect } from "react";
@@ -62,13 +63,13 @@ const ReviewsSection = () => {
   };
 
   return (
-    <section className="py-20 hero-gradient">
+    <section id="reviews" className="py-20 bg-gradient-to-br from-emerald-50 to-emerald-100/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="heading-arabic text-4xl md:text-5xl mb-6 text-white">
+          <h2 className="heading-arabic text-4xl md:text-5xl mb-6 text-emerald-900">
             What Our Students Say
           </h2>
-          <p className="text-elegant text-lg text-white/90 max-w-3xl mx-auto">
+          <p className="text-elegant text-lg text-emerald-600 max-w-3xl mx-auto font-medium">
             Hear from families around the world who have transformed their Quranic journey with us.
           </p>
         </div>
@@ -82,14 +83,14 @@ const ReviewsSection = () => {
             >
               {reviews.map((review) => (
                 <div key={review.id} className="w-full flex-shrink-0 px-4">
-                  <Card className="p-8 card-islamic max-w-2xl mx-auto text-center relative">
+                  <Card className="p-8 card-islamic max-w-2xl mx-auto text-center relative shadow-lg border-2 border-emerald-200/50 bg-gradient-to-br from-white to-emerald-50/30">
                     {/* Quote Icon */}
                     <div className="absolute top-4 left-4 opacity-20">
-                      <Quote className="w-8 h-8 text-primary" />
+                      <Quote className="w-8 h-8 text-emerald-600" />
                     </div>
                     
                     {/* Avatar */}
-                    <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-emerald-800 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <span className="text-white font-bold text-lg">
                         {review.avatar}
                       </span>
@@ -98,21 +99,21 @@ const ReviewsSection = () => {
                     {/* Stars */}
                     <div className="flex justify-center mb-4">
                       {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                        <Star key={i} className="w-5 h-5 fill-gold-400 text-gold-400" />
                       ))}
                     </div>
 
                     {/* Review Text */}
-                    <p className="text-elegant text-lg text-muted-foreground mb-6 italic">
+                    <p className="text-elegant text-lg text-emerald-800 mb-6 italic leading-relaxed">
                       "{review.text}"
                     </p>
 
                     {/* Reviewer Info */}
                     <div>
-                      <h4 className="heading-arabic text-xl font-semibold text-primary">
+                      <h4 className="heading-arabic text-xl font-semibold text-emerald-900">
                         {review.name}
                       </h4>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-emerald-600 font-medium">
                         {review.location}
                       </p>
                     </div>
@@ -130,8 +131,8 @@ const ReviewsSection = () => {
                 onClick={() => handleDotClick(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'bg-white scale-110' 
-                    : 'bg-white/40 hover:bg-white/60'
+                    ? 'bg-emerald-600 scale-110 shadow-lg' 
+                    : 'bg-emerald-300 hover:bg-emerald-400'
                 }`}
                 aria-label={`Go to review ${index + 1}`}
               />
@@ -141,7 +142,7 @@ const ReviewsSection = () => {
 
         {/* Trust Badge */}
         <div className="text-center mt-12">
-          <p className="text-white/80 text-sm">
+          <p className="text-emerald-700 text-sm font-medium">
             ⭐ Join hundreds of satisfied families from 25+ countries worldwide
           </p>
         </div>
